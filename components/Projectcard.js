@@ -7,7 +7,7 @@ import { Carousel } from 'react-responsive-carousel';
 const Projectcard = ({ title, images, description }) => {
    return (
       <div
-         class="w-[100%] md:w-[45%] bg-zinc-700 shadow-lg rounded-lg m-5">
+         className="w-[100%] md:w-[45%] bg-zinc-700 shadow-lg rounded-lg m-5">
          <div style={{
             width: "100%"
          }}>
