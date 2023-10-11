@@ -1,32 +1,36 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import Typed from 'react-typed';
 import Projectcard from '@/components/Projectcard';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { TypeAnimation } from 'react-type-animation';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-
+    <>
     <div className='flex flex-col justify-center items-center mx-[5%] md:mx-[10%] py-8 '>
+      
       <div className='flex flex-col justify-center items-center'>
         <div className='my-2 flex flex-col items-center md:flex-row md:mx-4'>
           <div>
-
-            <h1>
-              hey there,I&#39;m a{" "}
-              <Typed
-                strings={["Developer", "Gamer", "TechGeek"]}
-                typeSpeed={75}
-                loop
-                backSpeed={20}
-                cursorChar="█"
-                showCursor={true}
-              />
-            </h1>
-
+            <div>
+              <TypeAnimation className='type'
+                preRenderFirstString={true}
+                sequence={[
+                  500,
+                  `Hey I'm a Developer`, // initially rendered starting point
+                  1000,
+                  `Hey I'm a Gamer` ,
+                  1000,
+                  `Hey I'm a TechGeek`,
+                  1000,
+                ]}
+                speed={50}
+                style={{ fontSize: '2rem' }}
+                repeat={Infinity} />
+                
+            </div>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos atque fuga minima quibusdam, eius assumenda a? Sapiente repudiandae amet eos, iusto deleniti natus laboriosam atque neque. Rem cupiditate beatae eum reiciendis aperiam quasi similique!
             </p>
@@ -60,5 +64,17 @@ export default function Home() {
         </div>
       </div>
     </div>
+    <style global jsx>{`
+    .type::after {
+      content: '█';
+      animation: cursor 1.1s infinite step-start;
+    }
+    @keyframes cursor {
+      50% {
+        opacity: 0;
+      }
+    }
+  `}</style>
+  </>
   )
 }

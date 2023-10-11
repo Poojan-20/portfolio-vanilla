@@ -6,4 +6,5 @@
     body {
         @apply dark:bg-[#c6b077] dark:text-[#171518] bg-[#171518] text-[#c6b077] bg-repeat
     }
+    
 }
